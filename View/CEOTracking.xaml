@@ -1,0 +1,68 @@
+﻿<Page x:Class="BroongBroong.View.CEOTracking"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BroongBroong.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1000"
+      Title="CEOTracking">
+    <Border Margin="100" Background="Gray" Width="Auto" Height="Auto"  CornerRadius="50">
+        <Grid Margin="30" HorizontalAlignment="Center" VerticalAlignment="Center" Height="Auto" Width="Auto" Background="White" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+               
+            </Grid.RowDefinitions>
+            
+            <GroupBox Header="진행중 배송" Grid.Row="0" Margin="10" FontStyle="Italic" Foreground="#FF3965A4" >
+                <DataGrid Grid.Row="1" x:Name="delivering" Margin="10" Width="Auto" Height="300" 
+                          ItemsSource="{Binding Deliveries}"
+                          AutoGenerateColumns="False"
+             CanUserAddRows="False"
+             HeadersVisibility="Column">
+                    <DataGrid.Columns >
+                        <DataGridTextColumn Header="주문요청시간" Binding="{Binding RequestTime}" />
+                        <DataGridTextColumn Header="고객 번호" Binding="{Binding OrderTel}" />
+                        <DataGridTextColumn Header="고객 주소" Binding="{Binding Address}" />
+                        <DataGridTextColumn Header="상세 주소" Binding="{Binding DetailAddress}" />
+                        <DataGridTextColumn Header="결제 수단" Binding="{Binding PaymentMethod}" />
+                        <DataGridTextColumn Header="물품금액" Binding="{Binding Price}" />
+                        <DataGridTextColumn Header="가게이름" Binding="{Binding StoreName}" />
+                        <DataGridTextColumn Header="주문번호" Binding="{Binding OrderNum}" x:Name="orderNum" />
+                        <DataGridTextColumn Header="요청 메시지" Binding="{Binding Message}"  />
+                        <DataGridTextColumn Header="픽업요청시각" Binding="{Binding PicupreqTime}"  />
+                        <DataGridTextColumn Header="배송비" Binding="{Binding DeliveryMoney}" />
+                        <DataGridTextColumn Header="배송상태" Binding="{Binding DeliveryStatus}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+            <GroupBox  Header="진행완료 배송" Grid.Row="1" Margin="10" Foreground="#FF3965A4">
+                <DataGrid Grid.Row="1" x:Name="compelete" Margin="10" Width="Auto" Height="300" 
+                          ItemsSource="{Binding CompleteDeliveries}"
+                          AutoGenerateColumns="False"
+             CanUserAddRows="False"
+             HeadersVisibility="Column">
+                    <DataGrid.Columns >
+                        <DataGridTextColumn Header="주문요청시간" Binding="{Binding RequestTime}" />
+                        <DataGridTextColumn Header="배송완료시간" Binding="{Binding CompleteDelTime}" />
+                        <DataGridTextColumn Header="고객 번호" Binding="{Binding OrderTel}" />
+                        <DataGridTextColumn Header="고객 주소" Binding="{Binding Address}" />
+                        <DataGridTextColumn Header="상세 주소" Binding="{Binding DetailAddress}" />
+                        <DataGridTextColumn Header="결제 수단" Binding="{Binding PaymentMethod}" />
+                        <DataGridTextColumn Header="물품금액" Binding="{Binding Price}" />
+                        <DataGridTextColumn Header="가게이름" Binding="{Binding StoreName}" />
+                        <DataGridTextColumn Header="주문번호" Binding="{Binding OrderNum}"  />
+                        <DataGridTextColumn Header="요청 메시지" Binding="{Binding Message}"  />
+                        <DataGridTextColumn Header="픽업요청시각" Binding="{Binding PicupreqTime}"  />
+                        <DataGridTextColumn Header="배송비" Binding="{Binding DeliveryMoney}" />
+                        <DataGridTextColumn Header="배송상태" Binding="{Binding DeliveryStatus}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+       
+
+        </Grid>
+    </Border>
+
+</Page>

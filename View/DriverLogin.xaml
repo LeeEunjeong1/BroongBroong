@@ -1,0 +1,48 @@
+﻿<Page x:Class="BroongBroong.View.DriverLogin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BroongBroong.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DriverLogin">
+
+    <Grid>
+        <Border Background="Gray" Width="500" Height="500" CornerRadius="50">
+            <Grid Margin= "10" VerticalAlignment="Center" HorizontalAlignment="Center"  Height="Auto" Width="Auto" Background="White"  >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Margin="10"  TextAlignment="Center"
+                   Text="BroongBroong 기사님" FontSize="30" Foreground="#FF3965A4" />
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="10" Padding="10" 
+                   Text="ID" FontSize ="20" Foreground="Gray" />
+                <TextBox x:Name="id" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"  Margin="30"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Padding="20" 
+                   Text="PASSWORD" FontSize ="20" Foreground="Gray"/>
+                <PasswordBox x:Name="password" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="30"/>
+                <Button Content="LOGIN" Margin="20" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3"
+                    Background="#FF3965A4" FontSize ="20"  Width="300" Foreground="White" Click="Button_Click_1" />
+
+                <TextBlock x:Name="DriverJoin"  Grid.Row="4" Grid.Column="0"  Margin="0,7,10,32.96" HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.501">
+            <Hyperlink NavigateUri="/View/DriverJoin.xaml">회원가입</Hyperlink>
+                </TextBlock>
+                <TextBlock Grid.Row="4" Grid.Column="1" Margin="0,7,87,32.96" HorizontalAlignment="Right"  Grid.ColumnSpan="2">
+            <Hyperlink NavigateUri="/View/Main.xaml">HOME</Hyperlink>
+
+                </TextBlock>
+            </Grid>
+        </Border >
+
+    </Grid>
+</Page>

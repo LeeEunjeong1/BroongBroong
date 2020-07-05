@@ -1,0 +1,121 @@
+﻿<Page x:Class="BroongBroong.View.RequestDelivery"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BroongBroong.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RequestDelivery">
+
+    <Border Background="{StaticResource background}" Width="700" Height="800"  CornerRadius="50">
+        <Grid Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center" Height="Auto" Width="500" Background="White" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="2"  Margin="20"
+                 Text="배송신청" TextAlignment="Center" FontSize="50" Foreground="#FF3965A4"/>
+            <Grid Grid.Row="1" Grid.Column="0" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0"  Text=" 고객 전화번호"/>
+                <TextBox x:Name="customerTel"  Grid.Row="1" Text="" Margin="5"  />
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="0" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text=" 고객 주소"/>
+                <TextBox x:Name="cusAddress" Grid.Row="1" />
+                <TextBox x:Name="cusDetailAddress" Grid.Row="2" Tag="상세주소 입력해주세요"/>
+            </Grid>
+            <Grid Grid.Row="3" Grid.RowSpan="2" Grid.Column="0" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text=" 배송비"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="거리"/>
+                <TextBox x:Name="dist"  Grid.Row="1" Grid.Column="1"  />
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="기본 배송비"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="3000원" TextAlignment="Center"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="할증"/>
+                <TextBlock x:Name="extraCharge" Grid.Row="3" Grid.Column="1" Text="" TextAlignment="Right"/>
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="총 배송비"/>
+                <TextBlock x:Name="totalCharge" Grid.Row="4" Grid.Column="1" Text="" TextAlignment="Right"/>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="1" Margin="10" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text=" 배송 요청 시각"/>
+                <WrapPanel Grid.Row="1" Name="requestTimeList" HorizontalAlignment="Left">
+                    <RadioButton IsChecked="True" Content="5분 후" Tag="5" Margin="5"/>
+                    <RadioButton Content="10분 후" Tag="10" Margin="5" />
+                    <RadioButton Content="15분 후" Tag="15" Margin="5"/>
+                    <RadioButton Content="20분 후" Tag="20" Margin="5"/>
+                    <RadioButton Content="25분 후" Tag="25" Margin="5"/>
+                    <RadioButton Content="30분 후" Tag="30" Margin="5"/>
+                </WrapPanel>
+            </Grid>
+            <Grid Grid.Row="2" Grid.Column="1" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="결제수단"/>
+                <WrapPanel Grid.Row="1" Name="paymentMethodButtonList" HorizontalAlignment="Left">
+                    <RadioButton IsChecked="True" Content="선불" Tag="선불" Margin="5"/>
+                    <RadioButton Content="후불카드" Tag="후불카드" Margin="5"/>
+                    <RadioButton Content="후불현금" Tag="후불현금" Margin="5"/>
+                </WrapPanel>
+            </Grid>
+            <Grid Grid.Row="3" Grid.Column="1" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="상품가액"/>
+                <TextBox x:Name="productPrice" Grid.Row="1" Text="배송할 상품의 금액을 입력해주세요"/>
+            </Grid>
+            <Grid Grid.Row="4" Grid.Column="1" Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="배송 메세지"/>
+                <TextBox x:Name="deliveryText" Grid.Row="1" Text="배송 메세지를 입력해주세요"/>
+            </Grid>
+            <Button x:Name="requestDelivery" Grid.Row="5" Grid.Column="1" Margin="10" Click="requestDelivery_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="20" Background="#FF3965A4" Height="30" HorizontalAlignment="Right" Width="200">
+                            <TextBlock Text="배송신청하기" TextAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+    </Border>
+</Page>
